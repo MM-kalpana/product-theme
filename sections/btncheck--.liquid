@@ -1,0 +1,224 @@
+{{ 'section-custom-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+    .padding--{{ section.id }}{
+      padding-top:{{ section.settings.desktop_padding_top | divided_by: 2 }}px;
+      padding-bottom:{{ section.settings.desktop_padding_bottom |  divided_by: 2 }}px;
+    }
+  .color--{{ section.id }}, .color--{{ section.id }} h2.custom-image-with-text-overlay--heading{
+      color:{{ section.settings.text_color }};
+      background:{{ section.settings.background_color }};
+  }
+
+  @media screen and (min-width:750px){
+    .padding--{{ section.id }}{
+      padding-top:{{ section.settings.desktop_padding_top }}px;
+      padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+{% liquid
+  assign mobileImage = section.settings.mobile_image
+  assign desktopImage = section.settings.desktop_image
+  assign heading = section.settings.heading
+  assign description = section.settings.description
+  assign buttonLable = section.settings.button_label
+  assign buttonLink = section.settings.button_link
+  assign contentPosition = section.settings.content_position
+  assign textAlignment = section.settings.text_alignment
+%}
+<div class="custom-image-with-text-overlay--wrapper padding--{{ section.id }}">
+  <div class="custom-image-with-text-overlay--content-wrapper isolate">
+    <div class="custom-image-with-text-overlay--image-wrapper">
+      {% if desktopImage != blank or mobileImage != blank %}
+        {% render 'responsive-picture',
+          desktopImage: desktopImage,
+          mobileImage: mobileImage,
+          img-class: 'w-full',
+          alt: desktopImage.alt
+        %}
+      {% endif %}
+    </div>
+    <div class="custom-image-with-text-overlay--text-wrapper {{ contentPosition }} page-width">
+      <div class="custom-image-with-text-overlay--inner-content-wrapper {{ textAlignment }} color--{{ section.id }}">
+        {% if heading != blank %}
+          <h2 class="custom-image-with-text-overlay--heading">
+            {{ heading }}
+          </h2>
+        {% endif %}
+        {% if description != blank %}
+          <div class="custom-image-with-text-overlay--description">
+            {{ description }}
+          </div>
+        {% endif %}
+       {% if buttonLable != blank %}
+  <button class="custom-image-with-text-overlay--button button button--{{ section.id }}">
+    {% if buttonLink != blank %}
+      <a href="{{ buttonLink }}" aria-label="{{ buttonLable }}">{{ buttonLable}}</a>
+    {% else %}
+      <span>{{buttonLable}}</span>
+    {% endif %}
+  </button>
+{% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "btncheck",
+  "tag": "section",
+  "class": "section anyotherClass",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Desktop image",
+      "id": "desktop_image",
+      "info": "Recommended size: 1440 x 660"
+    },
+    {
+      "type": "image_picker",
+      "label": "Mobile image",
+      "id": "mobile_image",
+      "info": "Recommended size: 375  x 700"
+    },
+    {
+      "type": "richtext",
+      "label": "Heading",
+      "id": "heading",
+      "default": "<p>Say Hello to a Relaxed Existence</p>"
+    },
+    {
+      "type": "richtext",
+      "label": "Description",
+      "id": "description",
+      "default": "<p>inHarmony uses sound and vibration to help you and your clients relieve stress and anxiety.</p>"
+    },
+    {
+      "type": "text",
+      "label": "Button label",
+      "id": "button_label",
+      "default": "Click me"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Content alignment options"
+    },
+    {
+      "type": "select",
+      "label": "Content position",
+      "id": "content_position",
+      "options": [
+        {
+          "label": "Top left",
+          "value": "top-left"
+        },
+        {
+          "label": "Top center",
+          "value": "top-center"
+        },
+        {
+          "label": "Top right",
+          "value": "top-right"
+        },
+        {
+          "label": "Center left",
+          "value": "center-left"
+        },
+        {
+          "label": "Center center",
+          "value": "center-center"
+        },
+        {
+          "label": "Center right",
+          "value": "center-right"
+        },
+        {
+          "label": "Bottom left",
+          "value": "bottom-left"
+        },
+        {
+          "label": "Bottom center",
+          "value": "bottom-center"
+        },
+        {
+          "label": "Bottom right",
+          "value": "bottom-right"
+        }
+      ],
+      "default": "center-center"
+    },
+    {
+      "type": "select",
+      "label": "Text alignment",
+      "id": "text_alignment",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "color_background",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "header",
+      "content": "Section padding options"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "btn-check"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,212 @@
+<section class="winter-apparel" style="background-color: {{ section.settings.background_color }};">
+  <div class="content {% if section.settings.flex_direction == 'reverse' %}reverse{% endif %}">
+    {% if section.settings.desktop_image_two == blank %}
+      <div class="images">
+        <img src="{{ section.settings.desktop_image_one | img_url: 'master' }}" alt="First Image" class="image">
+      </div>
+    {% else %}
+      <div class="imagesecond">
+        <img src="{{ section.settings.desktop_image_one | img_url: 'master' }}" alt="First Image" class="simage-one">
+        <img src="{{ section.settings.desktop_image_two | img_url: 'master' }}" alt="Second Image" class="simage-two">
+      </div>
+    {% endif %}
+     
+    <div class="text">
+     <p style="font-size: 1rem; font-weight:900px;">{{ section.settings.paraheading }}</p>
+      <h2 style="font-size: 3rem; font-weight:900px;">{{ section.settings.heading }}</h2>
+      <p style="font-size: 1rem; font-weight:900px;">
+        {{ section.settings.description }}
+      </p>
+      <a href="#" class="shop-button">Shop Now 🡥</a>
+    </div>
+  </div>
+</section>
+
+<style>
+    body {
+        font-family: Inter, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+  .images{
+    width:50%;
+  }
+  .winter-apparel{
+    padding-top:10%;
+    padding-bottom:10%;
+  }
+
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        /* max-width: 1200px; */
+        width:100vw;
+        overflow: hidden;
+       align-items: center;
+    }
+
+
+    .content.reverse {
+        flex-direction: row-reverse;
+    }
+
+
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .text {
+        flex: 1;
+        padding: 20px;
+
+      
+    }
+
+    .text h2 {
+        margin-top: 0;
+    }
+
+    .shop-button {
+        display: inline-block;
+        /* margin-top: 20px; */
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 40% 40% 5% 5%;
+    }
+
+
+
+  /* imagesecond {
+
+  }
+   */
+  .imagesecond {
+     flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      width: 100%;
+      height: 65vh;
+      border-radius: 10px;
+  }
+
+  .simage-one{
+      position: relative;
+      z-index: 1;
+      width: 40%;
+     border-radius: 10% 10% 5% 5%;
+     border:1px solid black;
+  }
+
+  .simage-two {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
+      z-index: 0;
+      width: 40%;
+      border-radius: 10% 10% 5% 5%; 
+      border:1px solid black;
+  
+  }
+
+
+    @media (max-width: 768px) {
+      .content {
+            flex-direction: column;
+            width:100%;
+            /* height:100vh; */
+           }
+       .content>*{
+        width:100%;
+        height:50%;
+      
+     
+        .imagesecond>* {
+          width:24%;
+           }
+        .simage-one{
+         display:block;
+         left:10%;
+         top:12%;
+        }
+      .simage-two{
+        left: 25%;
+        top:5%;
+      }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "checkresponsive",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "First Image",
+      "id": "desktop_image_one",
+      "info": "Recommended size: 1440 x 660"
+    },
+    {
+      "type": "image_picker",
+      "label": "Second Image",
+      "id": "desktop_image_two",
+      "info": "Recommended size: 1440 x 660"
+    },
+    {
+      "type": "color_background",
+      "id": "background_color",
+      "label": "Background color",
+      "default":"#e9f2f7"
+    },
+    {
+      "type": "richtext",
+      "label": "subtext",
+      "id": "paraheading",
+      "default": "<p>Be Winter Ready!</p>"
+    },
+
+     {
+      "type": "richtext",
+      "label": "Heading",
+      "id": "heading",
+      "default": "<p> Apparel & accessories</p>"
+    },
+   {
+      "type": "richtext",
+      "label": "Description",
+      "id": "description",
+      "default": "<p>Our carefully curated collection features high-quality gloves, hats, scarves, goggles, jackets, and more, designed to withstand the harshest winter conditions while enhancing your performance.</p>"
+    },
+
+    {
+      "type": "select",
+      "label": "Flex Direction",
+      "id": "flex_direction",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "reverse",
+          "label": "Reverse"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "checkresponsive"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,87 @@
+{% schema %}
+{
+  "name": "checkpadding",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "Free shipping on all orders over $50!"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "checkpadding--"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="announcement-bar" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <p class="announcement-bar__text" style="text-align: {{ section.settings.text_alignment }};">{{ section.settings.announcement_text }}</p>
+</div>
+
+<style>
+.announcement-bar {
+  padding: 10px;
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+.announcement-bar__text {
+  margin: 0;
+  font-size: 16px;
+  width: 100%; /* Ensure it takes full width */
+}
+</style>

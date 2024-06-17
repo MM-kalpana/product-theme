@@ -1,0 +1,94 @@
+{% comment %}
+  How to inject your custom files in to section
+  1. JS
+  2. CSS
+  3. Snippet (HTML)
+{% endcomment %}
+
+
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+" defer></script>
+<link href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+" rel="stylesheet">
+
+
+
+
+
+{{ 'section-tmdb.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-tmdb.js' | asset_url }}" defer></script>
+
+<div class="inputdiv">
+<form>
+  <div  class="inpclass">
+    <input type="text" id="myInput">
+   
+  </div>
+</form>
+<button id="myButton">search</button>
+<div  id="imageContainer"></div>
+<h2>similar result</h2>
+<div id="similarimage"></div>
+</div>
+
+
+<section class="splide" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list" id="slidecontainer">
+		{% comment %} <li class="splide__slide">Slide 01</li>
+			<li class="splide__slide">Slide 02</li>
+			<li class="splide__slide">Slide 03</li> 
+			<li class="splide__slide">Slide 04</li> 
+			<li class="splide__slide">Slide 05</li> 
+			<li class="splide__slide">Slide 06</li> 
+			<li class="splide__slide">Slide 07</li> 
+			<li class="splide__slide">Slide 08</li> 
+			<li class="splide__slide">Slide 09</li>  {% endcomment %}
+		</ul>
+  </div>
+</section>
+
+<h2>Favorite Image</h2>
+
+<div id="fav"></div>
+
+{% comment %} <section class="splide" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list" id="fav">
+		{% comment %} <li class="splide__slide">Slide 01</li>
+			<li class="splide__slide">Slide 02</li>
+			<li class="splide__slide">Slide 03</li> 
+			<li class="splide__slide">Slide 04</li> 
+			<li class="splide__slide">Slide 05</li> 
+			<li class="splide__slide">Slide 06</li> 
+			<li class="splide__slide">Slide 07</li> 
+			<li class="splide__slide">Slide 08</li> 
+			<li class="splide__slide">Slide 09</li>  {% endcomment %}
+		</ul>
+  </div>
+</section> {% endcomment %}
+
+
+
+
+
+{% schema %}
+{
+  "name": "TMDB",
+  "tag": "section",
+  "settings": [
+    {
+     "type": "text",
+      "id": "text",
+      "label": "Section Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TMDB"
+    }
+  ]
+}
+{% endschema %}

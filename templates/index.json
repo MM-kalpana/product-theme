@@ -1,0 +1,193 @@
+{
+  "sections": {
+    "check_Y6kjP6": {
+      "type": "check",
+      "blocks": {
+        "focal_C8mB6V": {
+          "type": "focal",
+          "disabled": true,
+          "settings": {
+            "x_axis": "51",
+            "y_axis": "65"
+          }
+        }
+      },
+      "block_order": [
+        "focal_C8mB6V"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_image_one": "shopify:\/\/shop_images\/week4img1_b76d94b9-afc0-4fb1-a007-04d7c158127d.png",
+        "desktop_image_two": "shopify:\/\/shop_images\/week4img2_cb81be1a-00dc-4fbe-a2a1-3154c92c6470.png",
+        "background_color": "#e9f2f7",
+        "paraheading": "<p>Be Winter Ready!<\/p>",
+        "heading": "<p> Apparel & accessories<\/p>",
+        "description": "<p>Our carefully curated collection features high-quality gloves, hats, scarves, goggles, jackets, and more, designed to withstand the harshest winter conditions while enhancing your performance.<\/p>",
+        "flex_direction": "normal"
+      }
+    },
+    "checkresponsive_mWC6j6": {
+      "type": "checkresponsive",
+      "disabled": true,
+      "settings": {
+        "desktop_image_one": "shopify:\/\/shop_images\/week4img1_f177f547-2a19-4ec5-8cc0-474c72952494.png",
+        "desktop_image_two": "shopify:\/\/shop_images\/week4img2_eb4abba4-844f-4c4a-8c1a-873c7aff9c4a.png",
+        "background_color": "#e9f2f7",
+        "paraheading": "<p>Be Winter Ready<\/p>",
+        "heading": "<p>Winter Apparel Collection<\/p>",
+        "description": "<p>Our carefully curated collection features high-quality gloves, hats, scarves, goggles, jackets, and more, designed to withstand the harshest winter conditions while enhancing your performance.<\/p>",
+        "flex_direction": "normal"
+      }
+    },
+    "product_image_display_eTa6LN": {
+      "type": "product-image-display",
+      "blocks": {
+        "product_block_DQB3kw": {
+          "type": "product_block",
+          "settings": {
+            "title": "Real Feel",
+            "image": "shopify:\/\/shop_images\/1_2_2_0224853b-1f18-4f39-8c10-ae72719bf6a6.png",
+            "productname": "Natural Skin on Skin Feeling",
+            "backgroundcolor": "#fff7e8"
+          }
+        },
+        "product_block_fBpaDn": {
+          "type": "product_block",
+          "settings": {
+            "title": "Climax Delay",
+            "image": "shopify:\/\/shop_images\/img3.png",
+            "productname": "To Pleasure Both",
+            "backgroundcolor": "#ECECEC"
+          }
+        },
+        "product_block_MNJXcc": {
+          "type": "product_block",
+          "settings": {
+            "title": "Thin",
+            "image": "shopify:\/\/shop_images\/img_4.png",
+            "productname": "For Greater Sensitivity",
+            "backgroundcolor": "#e9f2f7"
+          }
+        },
+        "product_block_HCKCg9": {
+          "type": "product_block",
+          "settings": {
+            "title": "Intense",
+            "image": "shopify:\/\/shop_images\/2_1_1.png",
+            "productname": "For Tingling Sensation",
+            "backgroundcolor": "#ffedf5"
+          }
+        },
+        "product_block_QfEycg": {
+          "type": "product_block",
+          "settings": {
+            "title": "Stimulation",
+            "image": "shopify:\/\/shop_images\/img5.png",
+            "productname": "Product name",
+            "backgroundcolor": "rgb(255, 252, 240)"
+          }
+        },
+        "product_block_DAzdrT": {
+          "type": "product_block",
+          "settings": {
+            "title": "Flavoured",
+            "image": "shopify:\/\/shop_images\/img6.png",
+            "productname": "Feeling of Flavour",
+            "backgroundcolor": "#ffedef"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_DQB3kw",
+        "product_block_fBpaDn",
+        "product_block_MNJXcc",
+        "product_block_HCKCg9",
+        "product_block_QfEycg",
+        "product_block_DAzdrT"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_title": "What's Your Top Pick",
+        "condom_text": "Condom",
+        "lubes_text": "Lubes",
+        "button_padding": "20px 10px",
+        "button_border_radius": "20px"
+      }
+    },
+    "focalpoint_panner_Q4LmQ7": {
+      "type": "focalpoint-panner",
+      "blocks": {
+        "image_7DVyXw": {
+          "type": "image",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/veena1.webp",
+            "heading": "Women's Winter Clothes",
+            "description": "Welcome the season in style with our Women's Winter Clothes Collection – where warmth meets sophistication.",
+            "button_label": "Discover More",
+            "button_link": "\/",
+            "hotspot_primary": false,
+            "hotspot_product_1": "",
+            "hotspot_1_horizontal_position": 0,
+            "hotspot_1_vertical_position": 0,
+            "hotspot_secondory": false,
+            "hotspot_product_2": "",
+            "hotspot_2_horizontal_position": 0,
+            "hotspot_2_vertical_position": 0
+          }
+        },
+        "image_GcJT93": {
+          "type": "image",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/veena2.webp",
+            "heading": "Our Men's Winter Clothes",
+            "description": "welcome to our Men's Winter Clothes Collection, where every piece is a statement in comfort and style",
+            "button_label": "Discover More",
+            "button_link": "\/",
+            "hotspot_primary": false,
+            "hotspot_product_1": "",
+            "hotspot_1_horizontal_position": 0,
+            "hotspot_1_vertical_position": 0,
+            "hotspot_secondory": false,
+            "hotspot_product_2": "",
+            "hotspot_2_horizontal_position": 0,
+            "hotspot_2_vertical_position": 0
+          }
+        },
+        "image_cGpzrN": {
+          "type": "image",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/veena3.webp",
+            "heading": "Women's Outdoor Clothes Collection",
+            "description": "Embrace the beauty of nature with gear that complements your adventurous spirit.",
+            "button_label": "Discover More",
+            "button_link": "\/",
+            "hotspot_primary": false,
+            "hotspot_product_1": "",
+            "hotspot_1_horizontal_position": 0,
+            "hotspot_1_vertical_position": 0,
+            "hotspot_secondory": false,
+            "hotspot_product_2": "",
+            "hotspot_2_horizontal_position": 0,
+            "hotspot_2_vertical_position": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_7DVyXw",
+        "image_GcJT93",
+        "image_cGpzrN"
+      ],
+      "disabled": true,
+      "settings": {
+        "padding_top": 10,
+        "padding_bottom": 23
+      }
+    }
+  },
+  "order": [
+    "check_Y6kjP6",
+    "checkresponsive_mWC6j6",
+    "product_image_display_eTa6LN",
+    "focalpoint_panner_Q4LmQ7"
+  ]
+}

@@ -1,0 +1,196 @@
+<!-- sections/product-image-display.liquid -->
+<div class="container">
+  <h1>{{ section.settings.section_title }}</h1>
+  
+  <div class="buttons">
+    <a href="{{ section.settings.condom_link }}" class="button buttonone">{{ section.settings.condom_text }}</a>
+    <a href="{{ section.settings.lubes_link }}" class="button buttontwo">{{ section.settings.lubes_text }}</a>
+  </div>
+</div>
+<div class="blockcontainer">
+  {% for block in section.blocks %}
+    <div class="product-block" style="background-color: {{ block.settings.backgroundcolor }};">
+      <h2 >{{ block.settings.title }}</h2>
+      <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.title}}">
+      <p>{{ block.settings.productname }}</p>
+    </div>
+  {% endfor %}
+</div>
+<div class="newcontainer" id="newcontainer" style="display: none;">
+  {% for block in section.blocks %}
+    <div class="product-block" style="background-color: {{ block.settings.backgroundcolor }};">
+      <h2 >{{ block.settings.title }}</h2>
+      <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.title }}">
+      <p>{{ block.settings.productname }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "product-image-display",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Section Title",
+      "id": "section_title",
+      "default": "What's Your Top Pick"
+    },
+
+    {
+      "type": "text",
+      "label": "Condom Button Text",
+      "id": "condom_text",
+      "default": "Condoms"
+    },
+ 
+    {
+      "type": "text",
+      "label": "Lubes Button Text",
+      "id": "lubes_text",
+      "default": "Lubes"
+    },
+    {
+      "type": "text",
+      "label": "Button Padding",
+      "id": "button_padding",
+      "default": "15px 30px"
+    },
+    {
+      "type": "text",
+      "label": "Button Border Radius",
+      "id": "button_border_radius",
+      "default": "10px"
+    }
+  ],
+
+ "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product Block",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "title",
+          "default": "Product Title"
+        },
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        },
+         {
+          "type": "text",
+          "label": "productname",
+          "id": "productname",
+          "default": "Product name"
+        },
+        {
+      "type": "color_background",
+      "id": "backgroundcolor",
+      "label": "Background color",
+      "default":"#e9f2f7"
+    }
+       
+      ]
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "product-image-display"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  margin: 10px;
+  padding: {{ section.settings.button_padding }}; /* User-defined padding */
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: {{ section.settings.button_border_radius }}; /* User-defined border radius */
+  border:1px solid black;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  color:white;
+}
+.blockcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Adjust as per your layout needs */
+  gap:5%;
+}
+.product-block{
+  position: relative;
+  padding: 2%;
+  margin: 10px 10px 35px;
+  min-width:20%;
+  max-height:15%;
+  text-align:center;
+  border-radius:20px;
+  border: 1px solid pink;
+  justify-content:center;
+}    
+ .product-block h2 {
+    position: absolute;
+    background-color: #ffff;
+    padding: 0 20px 5px;
+    top: -8%;
+    left: 7%;
+    border-bottom: 1px solid #b8b8b8;
+    border-radius: 2px 2px 5px 5px;
+    font-size: 14px;
+     font-weight: 600;
+ 
+ 
+</style>
+   
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const button = document.querySelector('.buttontwo');
+    button.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default action
+
+      let blockcontainer = document.getElementById('blockcontainer');
+      let newcontainer = document.getElementById('newcontainer');
+
+      // Hide the current block container
+      blockcontainer.style.display = 'none';
+
+      // Show the new container
+      newcontainer.style.display = 'flex';
+    });
+  });
+</script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const button = document.querySelector('.buttontwo');
+    button.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default action
+      let blockcontainer = document.querySelector('.blockcontainer');
+      blockcontainer.innerHTML = ' product is empty';
+    });
+  });
+</script>

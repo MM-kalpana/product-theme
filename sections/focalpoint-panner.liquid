@@ -1,0 +1,161 @@
+{{ 'shop-the-look.css' | asset_url | stylesheet_tag }}
+<div class="shop-the-look-container page-width">
+  <div class="grid grid--1-col grid--2-col-tablet grid--3-col-desktop shop-the-look-card-wrapper">
+    {% for block in section.blocks %}
+      <div class="shop-the-look-card grid__item">
+        <!-- Image or Placeholder -->
+        <div class="shop-the-look-card__image-wrapper media media--portrait">
+          {% if block.settings.block_image != blank %}
+            {% render 'responsive-picture', desktopImage: block.settings.block_image, img-class: 'w-full' %}
+          {% else %}
+            {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        <!-- Heading and description -->
+        {% if block.settings.heading != blank %}
+          <div class="heading h2">{{ block.settings.heading }}</div>
+        {% endif %}
+        {% if block.settings.description != blank %}
+          <span class="text"> {{ block.settings.description }} </span>
+        {% endif %}
+        <!-- Button -->
+        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+        <a href={{ block.settings.button_link }} class="button">
+          {{ block.settings.button_label }}
+        </a>
+        {% endif %}
+        
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Shop the look",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+    "type": "image",
+    "name": "Card",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "block_image",
+        "label": "Image"
+      },
+      {
+        "type":"text",
+        "id":"heading",
+        "label": "Heading",
+        "default": "Heading"
+        },
+      {
+        "type":"text",
+        "id":"description",
+        "label": "Description"
+      },
+      {
+        "type":"text",
+        "id":"button_label",
+        "label": "Button label"
+      },
+      {
+        "type":"url",
+        "id":"button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "header",
+        "content": "Hotspot settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "hotspot_primary",
+        "label": "Show primary hotspot"
+      },
+      {
+        "type": "product",
+        "id": "hotspot_product_1",
+        "label": "Primary hotspot product"
+      },
+      {
+        "type": "range",
+        "id": "hotspot_1_horizontal_position",
+        "min": 0,
+        "max": 100,
+        "default":0,
+        "unit": "%",
+        "step": 1,
+        "label": "Primary hotspot horizontal position"
+      },
+      {
+        "type": "range",
+        "id": "hotspot_1_vertical_position",
+        "min": 0,
+        "max": 100,
+        "default":0,
+        "unit": "%",
+        "step": 1,
+        "label": "Primary hotspot vertical position"
+      },
+      {
+        "type": "checkbox",
+        "id": "hotspot_secondory",
+        "label": "Show secondory hotspot"
+      },
+      {
+        "type": "product",
+        "id": "hotspot_product_2",
+        "label": "Secondory hotspot product"
+      },
+      {
+        "type": "range",
+        "id": "hotspot_2_horizontal_position",
+        "min": 0,
+        "max": 100,
+        "default":0,
+        "unit": "%",
+        "step": 1,
+        "label": "Secondory hotspot horizontal position"
+      },
+      {
+        "type": "range",
+        "id": "hotspot_2_vertical_position",
+        "min": 0,
+        "max": 100,
+        "default":0,
+        "unit": "%",
+        "step": 1,
+        "label": "Secondory hotspot vertical position"
+      }
+    ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop the look"
+    }
+  ]
+}
+{% endschema %}

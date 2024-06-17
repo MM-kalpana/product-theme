@@ -1,0 +1,97 @@
+{{ 'section-store-locator.css' | asset_url | stylesheet_tag }}
+
+<div class="main_div page-width">
+  <div class="head_div">
+    <div class="heading">STEP INTO OUR STORE</div>
+    <div class="link_viewAll">
+      <a>View all</a>
+    </div>
+  </div>
+  <tag-name>
+    <div class="grid grid--3-col">
+      {% for block in section.blocks %}
+        <div class="image_slide--{{ forloop.index }} grid__item">
+          {% render 'responsive-picture', desktopImage: block.settings.desktop_image, img-class: 'w-full fit-image' %}
+          <div class="heading-store-name">{{ block.settings.heading }}</div>
+          <div class="location">
+            <span class="icon">
+              {% render 'icon-store-locator', name: 'location' %}
+            </span>
+            <span class="text-location">
+              {{ block.settings.location }}
+            </span>
+          </div>
+          <div class="phone">
+            <span class="icon">
+              {% render 'icon-store-locator', name: 'phone' %}
+            </span>
+            <span class="text-mobile">
+              {{ block.settings.mobile_number }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </tag-name>
+</div>
+{% schema %}
+{
+  "name": "Store locator",
+  "tag": "section",
+  "class": "section store-locator",
+  "settings": [
+   {
+    "type": "range",
+    "id": "padding_top",
+    "min": 0,
+    "max": 100,
+    "unit": "px",
+    "label": "Top Padding",
+    "default": 10
+  },
+  {
+    "type": "range",
+    "id": "padding_bottom",
+    "min": 0,
+    "max": 100,
+    "unit": "px",
+    "label": "Bottom Padding",
+    "default": 10
+  }
+  ],
+  "blocks": [
+    {
+    "type": "image_banner",
+    "name": "image_banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "desktop image"
+      },
+      {
+        "type":"text",
+        "id":"heading",
+        "label": "Heading",
+        "default": "Heading"
+        },
+      {
+        "type":"text",
+        "id":"location",
+        "label": "Location"
+      },
+      {
+        "type":"number",
+        "id":"mobile_number",
+        "label": "Mobile_number"
+      }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "Store locator"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,68 @@
+.inputdiv{
+  margin: 10vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+#myInput{
+  width: 30vw;
+  height: 7vh;
+  font-size: medium;
+  padding: 3px;
+  outline: none;
+}
+.inpclass{
+  display: flex;
+  gap:2vw;
+}
+#imageContainer{
+  margin-top: 10vh;
+}
+#similarimage{
+  display: flex;
+  margin: 4vw;
+  gap: 5vw;
+  flex-wrap: wrap;
+  width: 100vw;
+
+}
+.similerimmage{
+  width: 30vw;
+  height: 30vh;
+}
+#myButton{
+  margin: 5vh;
+}
+
+#slideimage{
+  width:30vw;
+  height: 30vh;
+}
+#fav{
+  margin: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: fit-content;
+  gap: 5vw;
+}
+#fav{
+margin: 0px auto;
+}
+#myButton{
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10pz;
+}
+@media screen and (max-width:320px){
+  #myInput{
+    width: 50vw;
+    height: 7vh;
+    font-size: medium;
+    padding: 3px;
+    outline: none;
+  }
+}
